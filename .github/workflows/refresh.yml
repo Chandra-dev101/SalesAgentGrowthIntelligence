@@ -27,9 +27,7 @@ jobs:
 
       - name: Run pipeline
         env:
-          AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
-          AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
-          AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+          MSAL_TOKEN_CACHE: ${{ secrets.MSAL_TOKEN_CACHE }}
           CI: true
         run: python run_pipeline_ci.py
 

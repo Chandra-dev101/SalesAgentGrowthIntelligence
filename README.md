@@ -14,11 +14,10 @@ You can also trigger a manual refresh from the [Actions tab](../../actions).
 - **Power BI** — Project data (Sales/C4S agents) and CXG customer details
 
 ## Setup (for maintainers)
-To enable automated refresh, add these repository secrets:
-- `AZURE_CLIENT_ID` — App registration client ID
-- `AZURE_CLIENT_SECRET` — App registration client secret  
-- `AZURE_TENANT_ID` — Azure AD tenant ID (`72f988bf-86f1-41af-91ab-2d7cd011db47`)
+The automated refresh uses a cached MSAL token (refresh token) stored as a GitHub secret.
 
-The app registration needs:
-- **Power BI Service** → Dataset.Read.All (application permission)
-- **Dynamics CRM** → user_impersonation or app-level access to SuccessHub
+**To refresh the token** (needed ~every 90 days when it expires):
+1. Run locally: `python refresh_token.py` (launches browser auth)
+2. It will update the `MSAL_TOKEN_CACHE` secret automatically
+
+No app registration or service tree ID needed — uses the existing first-party app.
