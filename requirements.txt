@@ -1,0 +1,5 @@
+msal>=1.24
+requests>=2.31
+pandas>=2.0
+azure-kusto-data>=4.0
+jinja2>=3.1
